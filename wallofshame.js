@@ -6,7 +6,7 @@ Router.route('/', function(){ this.render('Home'); }, { name: 'Home' });
 
 if (Meteor.isClient) {
 
-  Session.setDefault('commitsCursor',2);
+  Session.setDefault('commitsCursor',20);
 
   Meteor.autorun(function(){
     Meteor.subscribe('commits', Session.get('commitsCursor'));
@@ -23,7 +23,7 @@ if (Meteor.isClient) {
 
   Template.Home.events({
     'click .older': function(evt, tmpl){
-      Session.set('commitsCursor', Number(Session.get('commitsCursor')) + 2);
+      Session.set('commitsCursor', Number(Session.get('commitsCursor')) + 20);
     }
   });
 
