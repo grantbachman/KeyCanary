@@ -1,3 +1,29 @@
+.alert li {
+  overflow: scroll;
+}
+
+body {
+  padding-top: 90px;
+}
+
+.container {
+  min-height: 100%;
+}
+
 ul.list {
-    list-style-type: none;
+  list-style-type: none;
+  margin-left: -40px;  /* compensate for default 40px padding */
+}
+
+footer {
+	text-align: center;
+	height: 50px;
+	margin-top: 50px;
+	clear: both;
+}
+footer a {
+	text-decoration: none;
+}
+footer a:hover{
+	text-decoration: underline;
 }
