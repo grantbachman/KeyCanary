@@ -20,12 +20,10 @@ function parsePatch(patch){
       Left side must not contain 'public' and must contain either 'api',
           'secret', 'key', or 'token'.
       Right side must contain at least one digit
-      The Key cannot have been already saved off (same key in multiple )
     */
     if (!/public/i.test(match[1]) &&
         /(?:api|secret|key|token)/i.test(match[1]) &&
-        /\d/.test(match[2]) &&
-        Commits.find({value: match[2]}).count() == 0
+        /\d/.test(match[2])
        ){
         matches.push({key: match[1], value: match[2]});
       }
@@ -40,14 +38,17 @@ function parseCommit(url){
             var datum = obj.data.files[i];
             var matches = parsePatch(datum.patch);
             for (var j = 0; j < matches.length; j++){
-              console.log('Link: ' + obj.data.html_url + '  Matches: ' + matches);
-              Commits.insert({
-                sha: obj.data.sha,
-                link: obj.data.html_url,
-                key: matches[j]['key'],
-                value: matches[j]['value'],
-                createdAt: new Date()
-              });
+              // The Key cannot have been already saved off (same key in multiple )
+              if (Commits.find({value: matches[j]['value']}).count() == 0){
+                console.log('Link: ' + obj.data.html_url + '  Matches: ' + matches);
+                Commits.insert({
+                  sha: obj.data.sha,
+                  link: obj.data.html_url,
+                  key: matches[j]['key'],
+                  value: matches[j]['value'],
+                  createdAt: new Date()
+                });
+              }
           }
         } 
       }
