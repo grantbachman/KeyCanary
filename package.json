@@ -1,0 +1,23 @@
+{
+  "name": "keycanary",
+  "version": "0.0.0",
+  "main": "keycanary.js",
+  "dependencies": {
+    "github": "^0.2.3",
+    "mongodb": "^1.4.29"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grantbachman/wallofshame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/grantbachman/wallofshame/issues"
+  },
+  "homepage": "https://github.com/grantbachman/wallofshame"
+}
