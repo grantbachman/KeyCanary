@@ -1,5 +1,5 @@
 .alert li {
-  overflow: scroll;
+  overflow: hidden; 
 }
 
 body {
